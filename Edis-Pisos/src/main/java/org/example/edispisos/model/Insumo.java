@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Entity
-@Table(name = "insumo02")
+@Table(name = "insumo")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Insumo02 {
+public class Insumo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,4 +21,5 @@ public class Insumo02 {
 
     @Column(columnDefinition = "TEXT")
     private String descricao;
+
 }

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "servico")
@@ -52,16 +53,11 @@ public class Servico{
     @JoinColumn(name = "rodape_id")
     private Rodape rodape;
 
-    @ManyToOne
-    @JoinColumn(name = "insumo01_id")
-    private Insumo01 insumo01;
+    @OneToMany(mappedBy = "servico", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ServicoInsumo> insumos;
 
     @ManyToOne
-    @JoinColumn(name = "insumo02_id")
-    private Insumo02 insumo02;
-
-    @ManyToOne
-    @JoinColumn(name = "insumo03_id")
-    private Insumo03 insumo03;
+    @JoinColumn(name = "cor_id")
+    private Cor cor;
 
 }

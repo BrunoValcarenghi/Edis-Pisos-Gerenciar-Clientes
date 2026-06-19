@@ -14,7 +14,7 @@ public class ServicoService {
     private ServicoRepository servicoRepository;
 
     public List<Servico> listarTodos() {
-        return servicoRepository.findAll();
+        return servicoRepository.findAllByOrderByDataDesc();
     }
 
     public Optional<Servico> buscarPorId(Long id) {
@@ -22,6 +22,9 @@ public class ServicoService {
     }
 
     public Servico salvar(Servico servico) {
+        if (servico.getInsumos() != null) {
+            servico.getInsumos().forEach(insumoItem -> insumoItem.setServico(servico));
+        }
         return servicoRepository.save(servico);
     }
 

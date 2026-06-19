@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "piso")
 @Data
@@ -22,6 +24,11 @@ public class Piso {
     @Column(length = 100)
     private String marca;
 
-    @Column(length = 50)
-    private String cor;
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+            name = "piso_cor",
+            joinColumns = @JoinColumn(name = "piso_id"),
+            inverseJoinColumns = @JoinColumn(name = "cor_id")
+    )
+    private List<Cor> cores;
 }
