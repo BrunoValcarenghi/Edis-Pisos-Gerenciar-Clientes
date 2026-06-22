@@ -23,6 +23,7 @@ export default function CadastroServico({ onVoltar }) {
     const [pisoSelecionado, setPisoSelecionado] = useState('');
     const [corSelecionada, setCorSelecionada] = useState('');
     const [rodapeSelecionado, setRodapeSelecionado] = useState('');
+    const [metros_rodape, setMetros_rodape] = useState('');
 
     const [insumoAtualId, setInsumoAtualId] = useState('');
     const [quantidadeInsumoAtual, setQuantidadeInsumoAtual] = useState('');
@@ -97,6 +98,7 @@ export default function CadastroServico({ onVoltar }) {
             valorM2: parseFloat(valorM2),
             descricao,
             area: parseFloat(area),
+            metros_rodape: parseFloat(metros_rodape),
             data: data,
             piso: pisoSelecionado ? { id: parseInt(pisoSelecionado) } : null,
             cor: corSelecionada ? { id: parseInt(corSelecionada) } : null,
@@ -231,7 +233,7 @@ export default function CadastroServico({ onVoltar }) {
                             </select>
                         </div>
 
-                        <div className="field field-full">
+                        <div className="field">
                             <label htmlFor="rodape">Rodapé</label>
                             <div className="inline-fields">
                                 <select id="rodape" value={rodapeSelecionado} onChange={e => setRodapeSelecionado(e.target.value)}>
@@ -242,6 +244,10 @@ export default function CadastroServico({ onVoltar }) {
                                     +
                                 </button>
                             </div>
+                        </div>
+                        <div className="field">
+                            <label htmlFor="metros_rodape">Metragem</label>
+                            <input id="metros_rodape" type="number" value={metros_rodape} onChange={e => setMetros_rodape(e.target.value)} />
                         </div>
                     </div>
                 </section>

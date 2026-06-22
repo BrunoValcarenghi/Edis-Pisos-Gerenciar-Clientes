@@ -43,6 +43,9 @@ public class Servico{
     @Column(precision = 10, scale = 2)
     private BigDecimal area;
 
+    @Column(precision = 10, scale = 2)
+    private BigDecimal metros_rodape;
+
     private LocalDate data;
 
     @ManyToOne

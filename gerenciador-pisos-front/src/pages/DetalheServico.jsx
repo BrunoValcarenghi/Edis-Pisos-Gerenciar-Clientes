@@ -68,9 +68,9 @@ function DetalheServico({ idServico, onVoltar }) {
                 <section className="section">
                     <h3>Valores e dimensões</h3>
                     <div className="detail-grid">
-                        <Info label="Área total" value={`${servico.area} m²`} />
+                        <Info label="Área total" value={`${servico.area || '0,00'} m²`} />
                         <Info label="Valor por m²" value={`R$ ${servico.valorM2 || servico.valorm2 || '0,00'}`} />
-                        <Info label="Valor total" value={`R$ ${servico.valor}`} className="price" />
+                        <Info label="Valor total" value={`R$ ${servico.valor || '0,00'}`} className="price" />
                     </div>
                 </section>
 
@@ -85,10 +85,11 @@ function DetalheServico({ idServico, onVoltar }) {
 
                 <section className="section">
                     <h3>Acabamento / rodapé</h3>
-                    <div className="detail-grid">
+                    <div className="detail-grid detail-grid-2">
                         <Info label="Marca do rodapé" value={servico.rodape?.marca || 'Não especificada'} />
                         <Info label="Altura" value={servico.rodape?.altura ? `${servico.rodape.altura} cm` : 'Não especificada'} />
                         <Info label="Cor" value={servico.rodape?.cor || 'Não especificada'} />
+                        <Info label="Metragem" value={servico.metros_rodape || 'Não especificada'} />
                     </div>
                 </section>
 

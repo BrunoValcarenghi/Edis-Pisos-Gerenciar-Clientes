@@ -63,6 +63,7 @@ CREATE TABLE servico (
     valor_m2 DECIMAL(10,2),
     descricao TEXT,
     area DECIMAL(10,2),
+    metros_rodape DECIMAL(10,2),
     data DATE,
     piso_id INT REFERENCES piso(id) ON DELETE SET NULL,
     rodape_id INT REFERENCES rodape(id) ON DELETE SET NULL,
@@ -120,6 +121,7 @@ CREATE TABLE servico_insumo (
         decimal valor_m2
         text descricao
         decimal area
+        decimal metros_rodape
         date data_servico
         int piso_id FK
         int cor_id FK
